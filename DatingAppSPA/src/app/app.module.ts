@@ -6,12 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'node_modules/ngx-bootstrap/dropdown';
 import { TabsModule } from 'node_modules/ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'node_modules/ngx-bootstrap/datepicker';
+import { PaginationModule } from 'node_modules/ngx-bootstrap/pagination';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'node_modules/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
-import {TimeAgoPipe} from 'time-ago-pipe';
-
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { ButtonsModule } from 'node_modules/ngx-bootstrap/buttons';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -68,8 +69,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
+      PaginationModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      ButtonsModule.forRoot(),
       NgxGalleryModule,
       FileUploadModule,
       JwtModule.forRoot({
