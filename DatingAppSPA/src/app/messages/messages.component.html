@@ -4,10 +4,10 @@
       <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Unread" (click)="loadMessages()">
         <i class="fa fa-envelope"></i> Unread
       </button>
-      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Outbox" (click)="loadMessages()">
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Inbox" (click)="loadMessages()">
         <i class="fa fa-envelope-open"></i> Inbox
       </button>
-      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Inbox" (click)="loadMessages()">
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Outbox" (click)="loadMessages()">
         <i class="fa fa-paper-plane"></i> Outbox
       </button>
     </div>
@@ -34,7 +34,7 @@
             messageContainer == 'Outbox'
               ? message.recipientId
               : message.senderId
-          ]">
+          ]" [queryParams]="{tab: 3}">
           <td>{{message.content}}</td>
           <td>
             <div *ngIf="messageContainer != 'Outbox'">
@@ -48,11 +48,10 @@
           </td>
           <td>{{message.messageSent | timeAgo}}</td>
           <td>
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">Delete</button>
           </td>
           </tr>
     </table>
-
   </div>
 
 </div>
